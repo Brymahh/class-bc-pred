@@ -129,7 +129,7 @@ def get_radar_chart(input_data):
 
 def get_predictions(input_data): 
     
-    with open('model/saved_files.pkl', 'rb') as f:
+    with open('model/saved_files.pkl', 'rb') as f: #saved all together
         files = pickle.load(f)
     model=files['model']
     scaler=files['scaler']
