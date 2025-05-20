@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
-from main import get_clean_data
+#from main import get_clean_data
 
 
 
@@ -54,6 +54,18 @@ def add_sidebar():
             value=float(data[key].mean())
         )
     return input_from_user
+
+
+def get_clean_data():
+    '''
+    This function cleans and loads the data
+    '''
+    data= pd.read_csv('data.csv')
+    data = data.drop(['Unnamed: 32', 'id'], axis=1)
+    data['diagnosis'] = data['diagnosis'].map({'M': 1, 'B': 0})
+    #print(len(data.columns))
+    
+    return data
 
 
 def get_scaled_values(input_data):
